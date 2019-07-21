@@ -1,0 +1,18 @@
+name: jphp-gui-jediterm-ext
+version: 1.0.0
+
+deps:
+  jphp-runtime: '*'
+  jphp-gui-ext: '*'
+  jphp-gui-jfx-linux: '*'
+
+plugins:
+  - Gradle
+  - Hub
+
+gradle:
+  repos:
+    - "https://jetbrains.bintray.com/pty4j"
+  deps:
+    - "org.jetbrains:jediterm-pty:2.11"
+    - "org.jetbrains.pty4j:pty4j:0.8.6"
