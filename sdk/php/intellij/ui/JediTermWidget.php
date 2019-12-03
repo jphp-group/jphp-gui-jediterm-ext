@@ -38,4 +38,10 @@ class JediTermWidget {
      */
     public function getFXNode(): UXNode {
     }
+
+    /**
+     * @return SettingsProvider
+     */
+    public function getSettingsProvider(): SettingsProvider {
+    }
 }

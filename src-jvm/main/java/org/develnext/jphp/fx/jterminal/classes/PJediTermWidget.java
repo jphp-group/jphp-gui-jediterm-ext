@@ -2,7 +2,6 @@ package org.develnext.jphp.fx.jterminal.classes;
 
 import com.jediterm.pty.PtyProcessTtyConnector;
 import com.jediterm.terminal.ui.JediTermWidget;
-import com.jediterm.terminal.ui.settings.DefaultSettingsProvider;
 import com.pty4j.PtyProcess;
 import javafx.embed.swing.SwingNode;
 import org.develnext.jphp.ext.javafx.classes.UXNode;
@@ -12,7 +11,8 @@ import php.runtime.env.Environment;
 import php.runtime.lang.BaseWrapper;
 import php.runtime.reflection.ClassEntity;
 
-import java.nio.charset.Charset;
+import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 
 @Reflection.Name("JediTermWidget")
 @Reflection.Namespace(JediTermGuiExtension.NS_UI)
@@ -27,13 +27,21 @@ public class PJediTermWidget extends BaseWrapper<JediTermWidget> {
 
     @Reflection.Signature
     public void __construct(PtyProcess process) {
-        __wrappedObject = new JediTermWidget(new DefaultSettingsProvider())
-                .createTerminalSession(new PtyProcessTtyConnector(process, Charset.forName("UTF-8")));
+        __wrappedObject = new JediTermWidget(new PSettingsProvider(__env__))
+                .createTerminalSession(new PtyProcessTtyConnector(process, StandardCharsets.UTF_8));
     }
 
     @Reflection.Signature
     public void __construct() {
-        __wrappedObject = new JediTermWidget(new DefaultSettingsProvider());
+        __wrappedObject = new JediTermWidget(new PSettingsProvider(__env__));
+    }
+
+    @Reflection.Signature
+    public PSettingsProvider getSettingsProvider() throws NoSuchFieldException, IllegalAccessException {
+        Field field = JediTermWidget.class.getDeclaredField("mySettingsProvider");
+        field.setAccessible(true);
+
+        return (PSettingsProvider) field.get(__wrappedObject);
     }
 
     @Reflection.Signature
@@ -58,7 +66,7 @@ public class PJediTermWidget extends BaseWrapper<JediTermWidget> {
 
     @Reflection.Signature
     public void createTerminalSession(PtyProcess process) {
-        getWrappedObject().createTerminalSession(new PtyProcessTtyConnector(process, Charset.forName("UTF-8")));
+        getWrappedObject().createTerminalSession(new PtyProcessTtyConnector(process, StandardCharsets.UTF_8));
     }
 
     @Reflection.Signature
