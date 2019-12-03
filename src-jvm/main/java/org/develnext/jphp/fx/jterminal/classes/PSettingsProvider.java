@@ -21,13 +21,14 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Reflection.Name("SettingsProvider")
 @Reflection.Namespace(JediTermGuiExtension.NS_UI)
 public class PSettingsProvider extends BaseObject implements SettingsProvider {
-    private Map<String, Memory> mySettings;
+    private Map<String, Memory> mySettings = new HashMap<>();
 
     public PSettingsProvider(Environment env) {
         super(env);
@@ -160,7 +161,7 @@ public class PSettingsProvider extends BaseObject implements SettingsProvider {
             foreground = TerminalColor.awt(fromMemory(mySettings.get("defaultStyleForeground")));
 
         if (mySettings.containsKey("defaultStyleBackground"))
-            foreground = TerminalColor.awt(fromMemory(mySettings.get("defaultStyleBackground")));
+            background = TerminalColor.awt(fromMemory(mySettings.get("defaultStyleBackground")));
 
         return new TextStyle(foreground, background);
     }
@@ -174,7 +175,7 @@ public class PSettingsProvider extends BaseObject implements SettingsProvider {
             foreground = TerminalColor.awt(fromMemory(mySettings.get("selectionColorForeground")));
 
         if (mySettings.containsKey("selectionColorBackground"))
-            foreground = TerminalColor.awt(fromMemory(mySettings.get("selectionColorBackground")));
+            background = TerminalColor.awt(fromMemory(mySettings.get("selectionColorBackground")));
 
         return new TextStyle(foreground, background);
     }
@@ -188,7 +189,7 @@ public class PSettingsProvider extends BaseObject implements SettingsProvider {
             foreground = TerminalColor.awt(fromMemory(mySettings.get("foundPatternColorForeground")));
 
         if (mySettings.containsKey("foundPatternColorBackground"))
-            foreground = TerminalColor.awt(fromMemory(mySettings.get("foundPatternColorBackground")));
+            background = TerminalColor.awt(fromMemory(mySettings.get("foundPatternColorBackground")));
 
         return new TextStyle(foreground, background);
     }
@@ -202,7 +203,7 @@ public class PSettingsProvider extends BaseObject implements SettingsProvider {
             foreground = TerminalColor.awt(fromMemory(mySettings.get("hyperlinkColorForeground")));
 
         if (mySettings.containsKey("hyperlinkColorBackground"))
-            foreground = TerminalColor.awt(fromMemory(mySettings.get("hyperlinkColorBackground")));
+            background = TerminalColor.awt(fromMemory(mySettings.get("hyperlinkColorBackground")));
 
         return new TextStyle(foreground, background);
     }

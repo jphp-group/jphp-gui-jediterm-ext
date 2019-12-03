@@ -27,21 +27,18 @@ public class PJediTermWidget extends BaseWrapper<JediTermWidget> {
 
     @Reflection.Signature
     public void __construct(PtyProcess process) {
-        __wrappedObject = new JediTermWidget(new PSettingsProvider(__env__))
+        __construct(process, new PSettingsProvider(__env__));
+    }
+
+    @Reflection.Signature
+    public void __construct(PtyProcess process, PSettingsProvider settingsProvider) {
+        __wrappedObject = new JediTermWidget(settingsProvider)
                 .createTerminalSession(new PtyProcessTtyConnector(process, StandardCharsets.UTF_8));
     }
 
     @Reflection.Signature
     public void __construct() {
         __wrappedObject = new JediTermWidget(new PSettingsProvider(__env__));
-    }
-
-    @Reflection.Signature
-    public PSettingsProvider getSettingsProvider() throws NoSuchFieldException, IllegalAccessException {
-        Field field = JediTermWidget.class.getDeclaredField("mySettingsProvider");
-        field.setAccessible(true);
-
-        return (PSettingsProvider) field.get(__wrappedObject);
     }
 
     @Reflection.Signature

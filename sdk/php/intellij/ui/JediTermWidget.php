@@ -11,8 +11,9 @@ class JediTermWidget {
     /**
      * JediTermWidget constructor.
      * @param PtyProcess $process
+     * @param SettingsProvider|null $settingsProvider
      */
-    public function __construct(PtyProcess $process = null) {
+    public function __construct(PtyProcess $process = null, SettingsProvider $settingsProvider = null) {
     }
 
     public function requestFocus() {
@@ -37,11 +38,5 @@ class JediTermWidget {
      * @return UXNode
      */
     public function getFXNode(): UXNode {
-    }
-
-    /**
-     * @return SettingsProvider
-     */
-    public function getSettingsProvider(): SettingsProvider {
     }
 }
