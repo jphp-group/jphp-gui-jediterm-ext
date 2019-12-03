@@ -32,8 +32,10 @@ public class PJediTermWidget extends BaseWrapper<JediTermWidget> {
 
     @Reflection.Signature
     public void __construct(PtyProcess process, PSettingsProvider settingsProvider) {
-        __wrappedObject = new JediTermWidget(settingsProvider)
-                .createTerminalSession(new PtyProcessTtyConnector(process, StandardCharsets.UTF_8));
+        __wrappedObject = new JediTermWidget(settingsProvider);
+
+        if (process != null)
+            __wrappedObject.createTerminalSession(new PtyProcessTtyConnector(process, StandardCharsets.UTF_8));
     }
 
     @Reflection.Signature
