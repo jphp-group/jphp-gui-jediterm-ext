@@ -7,7 +7,7 @@ import com.jediterm.terminal.emulator.ColorPalette;
 import com.jediterm.terminal.model.LinesBuffer;
 import com.jediterm.terminal.ui.UIUtil;
 import com.jediterm.terminal.ui.settings.SettingsProvider;
-import org.develnext.jphp.ext.image.classes.PColor;
+import org.develnext.jphp.ext.javafx.classes.paint.UXColor;
 import org.develnext.jphp.fx.jterminal.JediTermGuiExtension;
 import php.runtime.Memory;
 import php.runtime.annotation.Reflection;
@@ -289,10 +289,9 @@ public class PSettingsProvider extends BaseObject implements SettingsProvider {
     }
 
     private Color fromMemory(Memory memory) {
-        PColor c = memory.toObject(PColor.class);
-        return new Color((float) c.getRed(),
-                (float) c.getGreen(),
-                (float) c.getBlue(),
-                (float) c.getAlpha());
+        UXColor c = memory.toObject(UXColor.class);
+        return new Color((float) c.getWrappedObject().getRed(),
+                (float) c.getWrappedObject().getGreen(),
+                (float) c.getWrappedObject().getBlue());
     }
 }
