@@ -16,3 +16,4 @@ gradle:
   deps:
     - "org.jetbrains:jediterm-pty:2.11"
     - "org.jetbrains.pty4j:pty4j:0.8.6"
+    - "com.formdev:flatlaf:0.20"
