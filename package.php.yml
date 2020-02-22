@@ -1,22 +1,16 @@
 name: jphp-gui-jediterm-ext
-version: 1.2.0
+version: 1.2.1
 
 deps:
   jphp-runtime: '*'
   jphp-gui-ext: ^3.0.0
 
-depsLinux:
-  jphp-gui-jfx-linux: ^13.0.0
-
-depsWin:
-  jphp-gui-jfx-linux: ^13.0.0
-
-depsMac:
-  jphp-gui-jfx-mac: ^13.0.0
-
 plugins:
   - Gradle
   - Hub
+
+jfx:
+  version: 13.0.2
 
 gradle:
   repos:
@@ -25,3 +19,10 @@ gradle:
     - "org.jetbrains:jediterm-pty:2.11"
     - "org.jetbrains.pty4j:pty4j:0.8.6"
     - "com.formdev:flatlaf:0.20"
+  providedDeps:
+    - 'org.openjfx:javafx-base:%jfx.version%:linux'
+    - 'org.openjfx:javafx-graphics:%jfx.version%:linux'
+    - 'org.openjfx:javafx-controls:%jfx.version%:linux'
+    - 'org.openjfx:javafx-fxml:%jfx.version%:linux'
+    - 'org.openjfx:javafx-media:%jfx.version%:linux'
+    - 'org.openjfx:javafx-swing:%jfx.version%:linux'
