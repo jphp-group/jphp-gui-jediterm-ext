@@ -3,7 +3,9 @@ version: 1.2.1
 
 deps:
   jphp-runtime: '*'
-  jphp-gui-ext: ^3.0.0
+  jphp-gui-ext: '*'
+devDeps:
+  dn-bundle-plugin: '*'
 
 plugins:
   - Gradle
@@ -26,3 +28,26 @@ gradle:
     - 'org.openjfx:javafx-fxml:%jfx.version%:linux'
     - 'org.openjfx:javafx-media:%jfx.version%:linux'
     - 'org.openjfx:javafx-swing:%jfx.version%:linux'
+
+config:
+  ignore:
+    - /sandbox/**
+    - /.idea/**
+    - /*.iml
+    - /.git/**
+    - /package.hub.yml
+    - /bundle/**
+    - /src-bundle/**
+    - /build
+    - /out/**
+    - /examples/**
+    - /dn-sources/**
+
+develnext-bundle:
+  version: 1.0.0
+  name: Jediterm
+  author: MWGuy
+  icon: "develnext/bundle/jediterm/icon32.png"
+  description: "Продвинутый эмулятор терминала"
+  group: "system"
+  class: "develnext\\bundle\\jediterm\\JeditermBundle"
