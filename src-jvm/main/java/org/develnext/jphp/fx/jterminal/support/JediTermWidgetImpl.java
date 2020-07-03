@@ -5,13 +5,12 @@ import com.jediterm.terminal.SubstringFinder;
 import com.jediterm.terminal.ui.JediTermWidget;
 import com.jediterm.terminal.ui.TerminalPanel;
 import com.jediterm.terminal.ui.settings.SettingsProvider;
-import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class JediTermWidgetImpl extends JediTermWidget {
-    public JediTermWidgetImpl(@NotNull SettingsProvider settingsProvider) {
+    public JediTermWidgetImpl(SettingsProvider settingsProvider) {
         super(settingsProvider);
     }
 
