@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @Reflection.Name("PtyProcess")
-@Reflection.Namespace(JediTermGuiExtension.NS_PTY)
+@Reflection.Namespace(JediTermGuiExtension.NS_TTY)
 @Reflection.Abstract
 public class PPtyProcess extends BaseWrapper<PtyProcess> {
 
@@ -67,8 +67,8 @@ public class PPtyProcess extends BaseWrapper<PtyProcess> {
         return new ObjectMemory(new MiscStream(env, this.getWrappedObject().getErrorStream()));
     }
 
-    @Reflection.Signature()
-    public void destroy(Environment env) throws Throwable {
+    @Reflection.Signature
+    public void destroy(Environment env) {
         this.getWrappedObject().destroy();
     }
 

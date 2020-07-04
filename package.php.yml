@@ -1,9 +1,10 @@
 name: jphp-gui-jediterm-ext
-version: 1.2.1
+version: 1.3.0
 
 deps:
   jphp-runtime: '*'
   jphp-gui-ext: '*'
+  jphp-ssh-ext: '*'
 devDeps:
   dn-bundle-plugin: '*'
 
@@ -44,10 +45,10 @@ config:
     - /dn-sources/**
 
 develnext-bundle:
-  version: 1.0.0
+  version: '%version%'
   name: Jediterm
   author: MWGuy
   icon: "develnext/bundle/jediterm/icon32.png"
-  description: "Продвинутый эмулятор терминала"
+  description: "Продвинутый эмулятор терминала с поддержкой SSH"
   group: "system"
   class: "develnext\\bundle\\jediterm\\JeditermBundle"

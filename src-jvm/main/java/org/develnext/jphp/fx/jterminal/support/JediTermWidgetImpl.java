@@ -2,6 +2,7 @@ package org.develnext.jphp.fx.jterminal.support;
 
 import com.formdev.flatlaf.ui.FlatScrollBarUI;
 import com.jediterm.terminal.SubstringFinder;
+import com.jediterm.terminal.model.JediTerminal;
 import com.jediterm.terminal.ui.JediTermWidget;
 import com.jediterm.terminal.ui.TerminalPanel;
 import com.jediterm.terminal.ui.settings.SettingsProvider;
@@ -27,6 +28,10 @@ public class JediTermWidgetImpl extends JediTermWidget {
         JScrollBar scrollBar = new JScrollBar();
         scrollBar.setUI(new ScrollBarUIImpl(scrollBar, myTerminalPanel, mySettingsProvider));
         return scrollBar;
+    }
+
+    public JediTerminal getTerminal() {
+        return myTerminal;
     }
 
     public static class ScrollBarUIImpl extends FlatScrollBarUI {
